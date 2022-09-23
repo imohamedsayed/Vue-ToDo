@@ -2,14 +2,22 @@
   <div class="login">
     <h2>Login</h2>
     <LoginForm />
-    <div class="ball d-md-block d-none"></div>
-    <div class="darkBall d-md-block d-none"></div>
+    <div class="ball"></div>
+    <div class="darkBall"></div>
   </div>
 </template>
 
 <script>
 import LoginForm from "../components/LoginForm.vue";
-export default { components: { LoginForm } };
+export default {
+  components: { LoginForm },
+  mounted() {
+    let user = localStorage.getItem("user");
+    if (user) {
+      this.$router.push({ name: "home" });
+    }
+  },
+};
 </script>
 
 <style lang="scss">

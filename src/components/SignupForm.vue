@@ -1,20 +1,118 @@
 <template>
-  <form @submit.prevent="">
-    <input type="text" placeholder="Name" />
-    <input type="email" placeholder="Email" />
-    <input type="password" placeholder="Password" />
-    <input type="password" placeholder="Confirm Password" />
-    <div>
+  <form @submit.prevent="checkEmailIfExisted">
+    <input type="text" placeholder="Name" v-model="userName" />
+    <span class="text-danger fw-bold" v-if="v$.userName.$error">
+      {{ v$.userName.$errors[0].$message }}
+    </span>
+    <input type="email" placeholder="Email" v-model="userEmail" />
+    <span class="text-danger fw-bold" v-if="v$.userEmail.$error">
+      {{ v$.userEmail.$errors[0].$message }}
+    </span>
+    <input type="password" placeholder="Password" v-model="userPassword" />
+    <span class="text-danger fw-bold" v-if="v$.userPassword.$error">
+      {{ v$.userPassword.$errors[0].$message }}
+    </span>
+    <input
+      type="password"
+      placeholder="Confirm Password"
+      v-model="userPasswordConform"
+    />
+    <span class="text-danger fw-bold" v-if="v$.userPasswordConform.$error">
+      {{ v$.userPasswordConform.$errors[0].$message }}
+    </span>
+    <div class="mt-4">
       <button type="submit">Sign Up</button>
     </div>
     <div class="info">
-      <p>Already Have an account? <a href="#">Login now</a></p>
+      <p>
+        Already Have an account?
+        <router-link :to="{ name: 'login' }">Login now</router-link>
+      </p>
     </div>
   </form>
+  <teleport to="body">
+    <Notification :theme="theme" :showNotification="showNotification">
+      <p>{{ notify }}</p>
+    </Notification>
+  </teleport>
 </template>
 
 <script>
-export default {};
+import useValidate from "@vuelidate/core";
+import { required, email, minLength, sameAs } from "@vuelidate/validators";
+import axios from "axios";
+import Notification from "./Notification.vue";
+export default {
+  data() {
+    return {
+      v$: useValidate(),
+      userName: "",
+      userEmail: "",
+      userPassword: "",
+      userPasswordConform: "",
+      showNotification: false,
+      theme: "",
+      notify: "",
+    };
+  },
+
+  validations() {
+    return {
+      userName: { required, minLength: minLength(5) },
+      userPassword: { required, minLength: minLength(8) },
+      userEmail: { required, email },
+      userPasswordConform: {
+        required,
+        minLength: minLength(8),
+        sameAs: sameAs(this.userPassword),
+      },
+    };
+  },
+  methods: {
+    async checkEmailIfExisted() {
+      let result = await axios.get(
+        `http://localhost:3000/users?email=${this.userEmail}`
+      );
+      if (result.status == 200) {
+        if (result.data.length != 1) {
+          this.SignupUser();
+        } else {
+          this.theme = "error";
+          this.notify = "this Email Is Already Existed";
+          this.showNotification = true;
+          setTimeout(() => {
+            this.showNotification = false;
+          }, 2000);
+        }
+      } else {
+        console.warn("Something went wrong while checking email");
+        return false;
+      }
+    },
+    async SignupUser() {
+      this.v$.$validate();
+      if (!this.v$.$error) {
+        let result = await axios.post("http://localhost:3000/users", {
+          name: this.userName.trim(),
+          email: this.userEmail.trim(),
+          password: this.userPassword.trim(),
+        });
+        if (result.status == 201) {
+          localStorage.setItem("user", JSON.stringify(result.data));
+          this.$router.push({ name: "home" });
+        }
+      } else {
+        this.theme = "error";
+        this.notify = "There is error or messing sign up data";
+        this.showNotification = true;
+        setTimeout(() => {
+          this.showNotification = false;
+        }, 2000);
+      }
+    },
+  },
+  components: { Notification },
+};
 </script>
 
 <style lang="scss">

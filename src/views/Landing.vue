@@ -10,8 +10,18 @@
           <p>Features</p>
         </div>
         <div class="actions d-md-block d-none">
-          <button class="btn btn-outline-dark text-light me-3">Login</button>
-          <button class="btn btn-outline-light">Signup</button>
+          <button
+            class="btn btn-outline-dark text-light me-3"
+            @click="$router.push({ name: 'login' })"
+          >
+            Login
+          </button>
+          <button
+            class="btn btn-outline-light"
+            @click="$router.push({ name: 'signup' })"
+          >
+            Signup
+          </button>
         </div>
       </div>
       <div class="landingBody">
@@ -22,7 +32,9 @@
             satisfaction upon completion.
           </p>
           <div class="intro-actions">
-            <button>Get Started</button>
+            <button @click="$router.push({ name: 'signup' })">
+              Get Started
+            </button>
             <button>learn More</button>
           </div>
           <img src="../assets/1.png" class="img-fluid mt-5" alt="" />
@@ -35,7 +47,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    let user = localStorage.getItem("user");
+    if (user) {
+      this.$router.push({ name: "home" });
+    }
+  },
+};
 </script>
 
 <style lang="scss" scoped>

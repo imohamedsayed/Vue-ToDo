@@ -12,7 +12,15 @@
 
 <script>
 import SignupForm from "@/components/SignupForm.vue";
-export default { components: { SignupForm } };
+export default {
+  components: { SignupForm },
+  mounted() {
+    let user = localStorage.getItem("user");
+    if (user) {
+      this.$router.push({ name: "home" });
+    }
+  },
+};
 </script>
 
 <style lang="scss">

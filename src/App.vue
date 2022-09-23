@@ -1,13 +1,35 @@
 <template>
-  <nav class="d-none">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <main>
-    <router-view />
-  </main>
+  <Header v-if="loggedIn" />
+  <div class="app-content">
+    <SideBar v-show="loggedIn" />
+    <main :class="{ fullSize: loggedIn == false }">
+      <router-view />
+    </main>
+  </div>
 </template>
-
+<script>
+import Header from "./components/Header.vue";
+import SideBar from "./components/SideBar.vue";
+export default {
+  components: { Header, SideBar },
+  data() {
+    return {
+      loggedIn: false,
+    };
+  },
+  methods: {
+    watchLogging() {
+      this.loggedIn = JSON.parse(localStorage.getItem("user")) ? true : false;
+    },
+  },
+  created() {
+    this.$watch(
+      () => this.$route.params,
+      () => this.watchLogging()
+    );
+  },
+};
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -15,12 +37,31 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  .app-content {
+    display: flex;
+    main {
+      flex: 1 1 0;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      &.fullSize {
+        height: 100vh;
+      }
+      @media (max-width: 768px) {
+        padding-left: 4rem;
+      }
+    }
+  }
 }
-
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #181820 !important;
+}
 :root {
   --dark: #181820;
   --dark-alt: #30303d;
   --gradient-a: #d753c5;
   --gradient-b: #fd8a8f;
+  --skin: #fc76a1;
 }
 </style>

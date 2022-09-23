@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "name": "Mohamed El-Sayed",
+      "email": "mso@gmail.com",
+      "password": "123456789",
+      "id": 1
+    },
+    {
+      "name": "Mohamed Sayed",
+      "email": "mso2077@gmail.com",
+      "password": "14789632",
+      "id": 2
+    },
+    {
+      "name": "Hassan Ali",
+      "email": "hassan2000@gmail.com",
+      "password": "123456789",
+      "id": 3
+    }
+  ]
+}
