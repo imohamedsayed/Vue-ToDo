@@ -135,6 +135,7 @@ form {
     transition: all 0.3s ease;
     &:focus {
       transform: scale(1.05);
+      outline: 2px solid var(--skin);
     }
   }
   button {

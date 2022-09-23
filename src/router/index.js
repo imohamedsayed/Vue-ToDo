@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import Landing from "../views/Landing.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
+import NotFound from "../views/NotFound.vue";
 const routes = [
   {
     path: "/home",
@@ -29,6 +30,14 @@ const routes = [
     path: "/login",
     name: "login",
     component: Login,
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: NotFound,
+    meta: {
+      title: "404 Not Found",
+    },
   },
 ];
 

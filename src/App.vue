@@ -36,7 +36,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   .app-content {
     display: flex;
     main {
@@ -48,6 +47,9 @@ export default {
       }
       @media (max-width: 768px) {
         padding-left: 4rem;
+        &.fullSize {
+          padding-left: 0rem;
+        }
       }
     }
   }
@@ -63,5 +65,6 @@ body {
   --gradient-a: #d753c5;
   --gradient-b: #fd8a8f;
   --skin: #fc76a1;
+  --grey: #aaaabe;
 }
 </style>
