@@ -62,6 +62,7 @@ body {
 :root {
   --dark: #181820;
   --dark-alt: #30303d;
+  --space-grey: #21212b;
   --gradient-a: #d753c5;
   --gradient-b: #fd8a8f;
   --skin: #fc76a1;

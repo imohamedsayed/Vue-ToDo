@@ -17,12 +17,6 @@
         </div>
         <span class="text">Home</span>
       </router-link>
-      <router-link :to="{ name: 'about' }" class="button">
-        <div class="text-center">
-          <i class="fa-solid fa-user"></i>
-        </div>
-        <span class="text">Profile</span>
-      </router-link>
     </div>
     <div class="flex"></div>
     <div class="menu">

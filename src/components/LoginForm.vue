@@ -56,7 +56,7 @@ export default {
         );
         if (result.status == 200) {
           if (result.data.length > 0) {
-            localStorage.setItem("user", JSON.stringify(result.data));
+            localStorage.setItem("user", JSON.stringify(result.data[0]));
             this.$router.push({ name: "home" });
           } else {
             this.theme = "error";

@@ -4,6 +4,7 @@ import Landing from "../views/Landing.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import NotFound from "../views/NotFound.vue";
+import Profile from "../views/Profile.vue";
 const routes = [
   {
     path: "/home",
@@ -16,12 +17,6 @@ const routes = [
     component: Landing,
   },
   {
-    path: "/about",
-    name: "about",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
-  },
-  {
     path: "/signup",
     name: "signup",
     component: Signup,
@@ -30,6 +25,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: Login,
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    component: Profile,
   },
   {
     path: "/:catchAll(.*)",

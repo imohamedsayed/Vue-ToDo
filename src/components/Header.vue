@@ -6,7 +6,10 @@
     </div>
     <div class="user">
       <i class="fa-solid fa-check"></i>
-      <i class="fa-solid fa-user"></i>
+      <i
+        class="fa-solid fa-user"
+        @click="$router.push({ name: 'profile' })"
+      ></i>
     </div>
   </div>
 </template>
