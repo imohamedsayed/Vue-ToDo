@@ -5,6 +5,7 @@ import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import NotFound from "../views/NotFound.vue";
 import Profile from "../views/Profile.vue";
+import School from "../views/School.vue";
 const routes = [
   {
     path: "/home",
@@ -30,6 +31,11 @@ const routes = [
     path: "/profile",
     name: "profile",
     component: Profile,
+  },
+  {
+    path: "/school",
+    name: "school",
+    component: School,
   },
   {
     path: "/:catchAll(.*)",

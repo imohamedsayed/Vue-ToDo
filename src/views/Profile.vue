@@ -244,6 +244,8 @@ export default {
 
 <style lang="scss" scoped>
 .profile {
+  max-width: 720px;
+  margin: 0 auto;
   .user {
     width: 100%;
     display: flex;

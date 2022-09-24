@@ -17,6 +17,12 @@
         </div>
         <span class="text">Home</span>
       </router-link>
+      <router-link :to="{ name: 'school' }" class="button" @click="goingHome">
+        <div class="text-center">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <span class="text">School</span>
+      </router-link>
     </div>
     <div class="flex"></div>
     <div class="menu">
@@ -151,11 +157,21 @@ aside {
         margin-bottom: 0.2rem;
       }
       i {
-        font-size: 2rem;
+        font-size: 1rem;
         width: 2rem;
+        height: 2rem;
+        display: grid;
+        place-content: center;
         color: #fff;
         margin-right: 1rem;
         transition: 0.2s ease-out;
+        border-radius: 5px;
+        &.fa-book-open {
+          background: var(--skin);
+        }
+        &.fa-home {
+          background: #96a7e4;
+        }
       }
       .text {
         color: #fff;
@@ -165,10 +181,6 @@ aside {
       &:hover,
       &.router-link-exact-active {
         background-color: #272833;
-        i,
-        .text {
-          color: var(--skin);
-        }
       }
       &.router-link-exact-active {
         border-right: 5px solid var(--skin);

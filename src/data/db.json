@@ -18,5 +18,29 @@
       "password": "123456789",
       "id": 3
     }
+  ],
+  "collections": [
+    {
+      "name": "school",
+      "id": "1"
+    }
+  ],
+  "tasks": [
+    {
+      "name": "Solve Math Homework",
+      "date": "2022-09-24T04:47",
+      "userId": 1,
+      "colId": 1,
+      "completed": true,
+      "id": 2
+    },
+    {
+      "name": "go to school",
+      "date": "2022-09-24T08:30",
+      "userId": 1,
+      "colId": 1,
+      "completed": false,
+      "id": 4
+    }
   ]
 }

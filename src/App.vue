@@ -42,6 +42,14 @@ export default {
       flex: 1 1 0;
       height: calc(100vh - 60px);
       overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 5px;
+        height: 12px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: var(--skin);
+        border-radius: 20px;
+      }
       &.fullSize {
         height: 100vh;
       }
