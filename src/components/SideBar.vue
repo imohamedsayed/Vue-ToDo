@@ -9,19 +9,31 @@
         <i class="fa-solid fa-angles-left" v-else></i>
       </button>
     </div>
-    <h3>Collections</h3>
-    <div class="menu">
-      <router-link :to="{ name: 'home' }" class="button" @click="goingHome">
-        <div class="text-center">
-          <i class="fa-solid fa-home"></i>
-        </div>
-        <span class="text">Home</span>
-      </router-link>
-      <router-link :to="{ name: 'school' }" class="button" @click="goingHome">
+    <div class="menu mt-3">
+      <h3 class="mt-3 mb-4">Collections</h3>
+      <router-link :to="{ name: 'school' }" class="button">
         <div class="text-center">
           <i class="fa-solid fa-book-open"></i>
         </div>
         <span class="text">School</span>
+      </router-link>
+      <router-link :to="{ name: 'personal' }" class="button">
+        <div class="text-center">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <span class="text">Personal</span>
+      </router-link>
+      <router-link :to="{ name: 'design' }" class="button">
+        <div class="text-center">
+          <i class="fa-solid fa-paintbrush"></i>
+        </div>
+        <span class="text">Design</span>
+      </router-link>
+      <router-link :to="{ name: 'groceries' }" class="button">
+        <div class="text-center">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+        <span class="text">Groceries</span>
       </router-link>
     </div>
     <div class="flex"></div>
@@ -56,11 +68,6 @@ export default {
     logout() {
       localStorage.clear();
       this.$router.push({ name: "login" });
-    },
-    goingHome() {
-      if (!localStorage.getItem("user")) {
-        this.toggleModal();
-      }
     },
   },
 };
@@ -171,6 +178,15 @@ aside {
         }
         &.fa-home {
           background: #96a7e4;
+        }
+        &.fa-user {
+          background: #70c4bf;
+        }
+        &.fa-paintbrush {
+          background: #ae68e6;
+        }
+        &.fa-cart-shopping {
+          background: #cfb452;
         }
       }
       .text {

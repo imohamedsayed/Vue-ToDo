@@ -1,5 +1,5 @@
 <template>
-  <transition name="task-transition">
+  <transition name="task-transition"> 
     <div class="taskForm" v-show="showForm">
       <div class="close" @click="$emit('close')">X</div>
       <div class="done" v-if="done"><i class="fa-solid fa-check"></i></div>

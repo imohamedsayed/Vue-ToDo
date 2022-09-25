@@ -57,7 +57,7 @@ export default {
         if (result.status == 200) {
           if (result.data.length > 0) {
             localStorage.setItem("user", JSON.stringify(result.data[0]));
-            this.$router.push({ name: "home" });
+            this.$router.push({ name: "dashboard" });
           } else {
             this.theme = "error";
             this.notify = "Wrong Email or Password";

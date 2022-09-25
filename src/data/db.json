@@ -17,12 +17,30 @@
       "email": "hassan2000@gmail.com",
       "password": "123456789",
       "id": 3
+    },
+    {
+      "name": "Khaled Mohamed",
+      "email": "khaled@gmail.com",
+      "password": "123456789",
+      "id": 4
     }
   ],
   "collections": [
     {
       "name": "school",
-      "id": "1"
+      "id": 1
+    },
+    {
+      "name": "personal",
+      "id": 2
+    },
+    {
+      "name": "design",
+      "id": 3
+    },
+    {
+      "name": "groceries",
+      "id": 4
     }
   ],
   "tasks": [
@@ -31,7 +49,7 @@
       "date": "2022-09-24T04:47",
       "userId": 1,
       "colId": 1,
-      "completed": true,
+      "completed": false,
       "id": 2
     },
     {
@@ -39,8 +57,48 @@
       "date": "2022-09-24T08:30",
       "userId": 1,
       "colId": 1,
-      "completed": false,
+      "completed": true,
       "id": 4
+    },
+    {
+      "name": "Studding Arabic",
+      "date": "2022-09-25T16:40",
+      "userId": 1,
+      "colId": 1,
+      "completed": true,
+      "id": 6
+    },
+    {
+      "name": "E-commerce Dashboard",
+      "date": "2022-09-26T12:00",
+      "userId": 1,
+      "colId": 3,
+      "completed": true,
+      "id": 7
+    },
+    {
+      "name": "Buy Nescafe",
+      "date": "2022-09-25T16:50",
+      "userId": 1,
+      "colId": 4,
+      "completed": false,
+      "id": 8
+    },
+    {
+      "name": "Exam revision",
+      "date": "2022-09-27T20:00",
+      "userId": 4,
+      "colId": 1,
+      "completed": false,
+      "id": 9
+    },
+    {
+      "name": "meet steve",
+      "date": "2022-09-26T03:06",
+      "userId": 4,
+      "colId": 2,
+      "completed": true,
+      "id": 10
     }
   ]
 }

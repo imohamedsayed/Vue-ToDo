@@ -25,7 +25,12 @@ export default {
   created() {
     this.$watch(
       () => this.$route.params,
-      () => this.watchLogging()
+      () => {
+        this.watchLogging();
+        if (this.$route.name == "NotFound") {
+          this.loggedIn = false;
+        }
+      }
     );
   },
 };

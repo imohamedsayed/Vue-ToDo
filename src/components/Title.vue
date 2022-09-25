@@ -2,7 +2,7 @@
   <div class="title">
     <i
       class="fa-solid fa-chevron-left"
-      @click="$router.push({ name: 'home' })"
+      @click="$router.push({ name: 'dashboard' })"
     ></i>
     <h2><slot /></h2>
   </div>

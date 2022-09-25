@@ -1,8 +1,12 @@
 <template>
   <div class="header">
     <div class="links">
-      <a href="#"><i class="fa-solid fa-square-poll-vertical"></i>Dashboard</a>
-      <a href="#"><i class="fa-solid fa-cubes-stacked"></i>Collection</a>
+      <router-link :to="{ name: 'dashboard' }"
+        ><i class="fa-solid fa-square-poll-vertical"></i>Dashboard</router-link
+      >
+      <router-link :to="{ name: 'collections' }"
+        ><i class="fa-solid fa-cubes-stacked"></i>Collection</router-link
+      >
     </div>
     <div class="user">
       <i class="fa-solid fa-check"></i>
@@ -30,11 +34,15 @@ export default {};
     gap: 30px;
     margin-left: 20px;
     a {
-      color: #d1d1d2;
+      color: #9c9c9c;
       text-decoration: none;
       font-size: 1.2rem;
+      transition: all 0.3s ease;
       i {
         margin-right: 10px;
+      }
+      &.router-link-exact-active {
+        color: #fff;
       }
     }
   }

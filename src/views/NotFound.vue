@@ -6,7 +6,7 @@
       Chances are you spelled something wrong, sp you can double check the URL?
     </p>
     <div class="text-center mt-5">
-      <button @click="$router.push({ name: 'home' })">Return Home</button>
+      <button @click="$router.push({ name: 'dashboard' })">Return Home</button>
     </div>
     <div class="ball d-md-block d-none"></div>
     <div class="darkBall d-md-block d-none"></div>

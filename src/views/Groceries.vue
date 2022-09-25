@@ -1,9 +1,9 @@
 <template>
   <div class="container pt-5">
-    <div class="school" v-if="schoolCollection">
-      <Title> School </Title>
-      <AddTask :collection="schoolCollection" :user="user" />
-      <TaskList :category="schoolCollection" />
+    <div class="personal" v-if="collection">
+      <Title>Groceries Tasks</Title>
+      <AddTask :collection="collection" :user="user" />
+      <TaskList :category="collection" />
     </div>
   </div>
 </template>
@@ -11,13 +11,13 @@
 <script>
 import Title from "@/components/Title.vue";
 import AddTask from "@/components/AddTask.vue";
+import TaskList from "@/components/TaskList.vue";
 import axios from "axios";
-import TaskList from "../components/TaskList.vue";
 export default {
   components: { Title, AddTask, TaskList },
   data() {
     return {
-      schoolCollection: null,
+      collection: "",
       user: "",
     };
   },
@@ -28,10 +28,10 @@ export default {
     } else {
       this.user = JSON.parse(localStorage.getItem("user"));
       let result = await axios.get(
-        "http://localhost:3000/collections?name=school"
+        "http://localhost:3000/collections?name=groceries"
       );
       if (result.status == 200) {
-        this.schoolCollection = result.data[0];
+        this.collection = result.data[0];
       }
     }
   },
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.school {
+.personal {
   max-width: 720px;
   margin: 0 auto;
 }

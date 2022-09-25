@@ -37,7 +37,7 @@ export default {
       this.user = JSON.parse(localStorage.getItem("user"));
     }
     let result = await axios.get(
-      `http://localhost:3000/tasks?userId=${this.user.id}&catId=${this.category.id}`
+      `http://localhost:3000/tasks?userId=${this.user.id}&colId=${this.category.id}`
     );
     if (result.status == 200) {
       result.data.forEach((task) => {
